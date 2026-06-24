@@ -1,0 +1,69 @@
+name: loong64
+on:
+  push:
+    branches:
+      - loong64-*
+    tags:
+      - release-loong64-*
+  pull_request:
+    branches:
+      - loong64-*
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    env:
+      NAMESPACE: ${{ vars.NAMESPACE || 'kubernetesloong64' }}
+    strategy:
+      matrix:
+        base:
+          - os: anolis
+            dockerfile: Dockerfile.anolis
+    permissions:
+      contents: read
+    steps:
+      - name: Checkout
+        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+      - name: Print branch name
+        run: |
+          if [ "${{ github.event_name }}" = "pull_request" ]; then
+            echo "${{ github.base_ref }} (PR target)"
+          else
+            echo ${{ github.ref_name }}
+          fi
+      - name: Extract git branch
+        id: extract
+        run: |
+          if [ "${{ github.event_name }}" = "pull_request" ]; then
+            REF=${{ github.base_ref }}
+          else
+            REF=${{ github.ref_name }}
+          fi
+          echo "REF=$REF"
+          RAW_VERSION=$(echo $REF | awk -F'loong64-' '{print $2}')
+          echo "RAW_VERSION=$RAW_VERSION"
+          echo "RAW_VERSION=$RAW_VERSION" >> ${GITHUB_ENV}
+          GIT_BRANCH=$(echo $RAW_VERSION | awk -F'+' '{print $1}')
+          echo "GIT_BRANCH=$GIT_BRANCH"
+          echo "GIT_BRANCH=$GIT_BRANCH" >> ${GITHUB_ENV}
+      - name: Set up QEMU
+        uses: docker/setup-qemu-action@06116385d9baf250c9f4dcb4858b16962ea869c3 # v4.1.0
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@d7f5e7f509e45cec5c76c4d5afdd7de93d0b3df5 # v4.1.0
+      - name: Login to Docker
+        uses: docker/login-action@650006c6eb7dba73a995cc03b0b2d7f5ca915bee # v4.2.0
+        if: github.event_name == 'push'
+        with:
+          username: ${{ vars.DOCKER_USERNAME }}
+          password: ${{ secrets.DOCKER_PASSWORD }}
+      - name: Build image
+        run: |
+          is_push=${{ github.event_name == 'push' && '--push' || '--load' }}
+          docker buildx build \
+            --no-cache \
+            -f "docker/${{ matrix.base.dockerfile }}" \
+            $is_push \
+            --build-arg "GIT_BRANCH=${{ env.GIT_BRANCH }}" \
+            --platform linux/loong64 \
+            -t "${{ env.NAMESPACE }}/git-loong64:${{ env.GIT_BRANCH }}-${{ matrix.base.os }}" \
+            docker/
