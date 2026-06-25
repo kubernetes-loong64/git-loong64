@@ -10,15 +10,15 @@ RUN curl -LO https://github.com/git/git/archive/refs/tags/${GIT_BRANCH}.zip \
   && folder=git-$(echo $GIT_BRANCH | awk -Fv '{print $2}') \
   && echo "folder=$folder" \
   && cd $folder \
-  && make -j$(nproc) prefix=/usr/local \
-  && make -j$(nproc) install prefix=/usr/local \
-  && find /usr/local
+  && make -j$(nproc) prefix=/usr \
+  && make -j$(nproc) install DESTDIR=/tmp/git-staging prefix=/usr \
+  && find /tmp/git-staging
 
 FROM openanolis/anolisos:23.4
 
 ARG GIT_BRANCH=v2.54.0
 
-COPY --from=builder /usr/local /usr/local
+COPY --from=builder /tmp/git-staging/usr /usr
 
 LABEL maintainer="徐晓伟 <xuxiaowei@xuxiaowei.com.cn>" \
       license="Apache-2.0" \
