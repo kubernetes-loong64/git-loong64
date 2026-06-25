@@ -19,6 +19,13 @@ jobs:
         base:
           - os: anolis
             dockerfile: Dockerfile.anolis
+            base_image: openanolis/anolisos:23.4
+          - os: debian
+            dockerfile: Dockerfile.debian
+            base_image: lcr.loongnix.cn/debian:14
+          - os: debian-slim
+            dockerfile: Dockerfile.debian
+            base_image: lcr.loongnix.cn/debian:14-slim
     permissions:
       contents: read
     steps:
@@ -64,6 +71,7 @@ jobs:
             -f "docker/${{ matrix.base.dockerfile }}" \
             $is_push \
             --build-arg "GIT_BRANCH=${{ env.GIT_BRANCH }}" \
+            --build-arg "BASE_IMAGE=${{ matrix.base.base_image }}" \
             --platform linux/loong64 \
             -t "${{ env.NAMESPACE }}/git-loong64:${{ env.GIT_BRANCH }}-${{ matrix.base.os }}" \
             docker/
