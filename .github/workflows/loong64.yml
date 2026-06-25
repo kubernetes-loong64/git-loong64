@@ -27,6 +27,9 @@ jobs:
           - os: debian-slim
             dockerfile: Dockerfile.debian
             base_image: lcr.loongnix.cn/debian:14-slim
+          - os: openeuler
+            dockerfile: Dockerfile.openeuler
+            base_image: openeuler/openeuler:24.03-lts-sp3
     permissions:
       contents: read
     steps:
