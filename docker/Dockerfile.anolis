@@ -5,7 +5,7 @@ ARG GIT_BRANCH=v2.54.0
 
 WORKDIR /home
 
-RUN dnf install -y openssl-devel zlib-devel curl-devel cargo expat-devel tcl-devel gettext-devel tar unzip
+RUN dnf install -y unzip diffutils gcc openssl-devel zlib-devel curl-devel expat-devel gettext tar
 RUN curl -LO https://github.com/git/git/archive/refs/tags/${GIT_BRANCH}.zip \
   && unzip ${GIT_BRANCH}.zip \
   && folder=git-$(echo $GIT_BRANCH | awk -Fv '{print $2}') \
