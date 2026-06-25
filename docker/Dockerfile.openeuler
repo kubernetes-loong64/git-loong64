@@ -13,7 +13,8 @@ RUN curl -LO https://github.com/git/git/archive/refs/tags/${GIT_BRANCH}.zip \
   && cd $folder \
   && make -j$(nproc) prefix=/usr \
   && make -j$(nproc) install DESTDIR=/tmp/git-staging prefix=/usr \
-  && find /tmp/git-staging
+  && find /tmp/git-staging \
+  && /tmp/git-staging/usr/bin/git --version
 
 FROM $BASE_IMAGE
 
