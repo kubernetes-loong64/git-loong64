@@ -177,12 +177,12 @@ jobs:
           cat > release-body.md <<'BODYEOF'
           ## Artifacts
 
-          | File                          | Download                                                                       |
-          |-------------------------------|--------------------------------------------------------------------------------|
-          | `git-loong64-${{ env.DOCKER_TAG }}-anolis.tar`      | [git-loong64-anolis.tar](${{ env.BASE_URL }}/git-loong64-anolis.tar)           |
-          | `git-loong64-${{ env.DOCKER_TAG }}-debian.tar`      | [git-loong64-debian.tar](${{ env.BASE_URL }}/git-loong64-debian.tar)           |
-          | `git-loong64-${{ env.DOCKER_TAG }}-debian-slim.tar` | [git-loong64-debian-slim.tar](${{ env.BASE_URL }}/git-loong64-debian-slim.tar) |
-          | `git-loong64-${{ env.DOCKER_TAG }}-openeuler.tar`   | [git-loong64-openeuler.tar](${{ env.BASE_URL }}/git-loong64-openeuler.tar)     |
+          | File                                                | Download                                                                                                                   |
+          |-----------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------|
+          | `git-loong64-${{ env.DOCKER_TAG }}-anolis.tar`      | [git-loong64-${{ env.DOCKER_TAG }}-anolis.tar](${{ env.BASE_URL }}/git-loong64-${{ env.DOCKER_TAG }}-anolis.tar)           |
+          | `git-loong64-${{ env.DOCKER_TAG }}-debian.tar`      | [git-loong64-${{ env.DOCKER_TAG }}-debian.tar](${{ env.BASE_URL }}/git-loong64-${{ env.DOCKER_TAG }}-debian.tar)           |
+          | `git-loong64-${{ env.DOCKER_TAG }}-debian-slim.tar` | [git-loong64-${{ env.DOCKER_TAG }}-debian-slim.tar](${{ env.BASE_URL }}/git-loong64-${{ env.DOCKER_TAG }}-debian-slim.tar) |
+          | `git-loong64-${{ env.DOCKER_TAG }}-openeuler.tar`   | [git-loong64-${{ env.DOCKER_TAG }}-openeuler.tar](${{ env.BASE_URL }}/git-loong64-${{ env.DOCKER_TAG }}-openeuler.tar)     |
 
           Each file has a corresponding `.asc` detached GPG signature.
 
