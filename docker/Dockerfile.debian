@@ -12,16 +12,16 @@ RUN curl -LO https://github.com/git/git/archive/refs/tags/${GIT_BRANCH}.zip \
   && folder=git-$(echo $GIT_BRANCH | awk -Fv '{print $2}') \
   && echo "folder=$folder" \
   && cd $folder \
-  && make -j$(nproc) prefix=/usr \
-  && make -j$(nproc) install DESTDIR=/tmp/git-staging prefix=/usr \
+  && make -j$(nproc) prefix=/usr/local \
+  && make -j$(nproc) install DESTDIR=/tmp/git-staging prefix=/usr/local \
   && find /tmp/git-staging \
-  && /tmp/git-staging/usr/bin/git --version
+  && /tmp/git-staging/usr/local/bin/git --version
 
 FROM $BASE_IMAGE
 
 ARG GIT_BRANCH=v2.54.0
 
-COPY --from=builder /tmp/git-staging/usr /usr
+COPY --from=builder /tmp/git-staging/usr/local /usr/local
 
 LABEL maintainer="徐晓伟 <xuxiaowei@xuxiaowei.com.cn>" \
       license="Apache-2.0" \
