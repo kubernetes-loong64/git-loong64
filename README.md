@@ -49,7 +49,10 @@ Each file has a corresponding `.asc` detached GPG signature.
 
 ## Docker images
 
-[![kubernetesloong64/git-loong64](https://img.shields.io/docker/v/kubernetesloong64/git-loong64?sort=semver&arch=loong64&logo=docker&label=kubernetesloong64%2Fgit-loong64)](https://hub.docker.com/r/kubernetesloong64/git-loong64/tags)
+- [![kubernetesloong64/git-loong64](https://img.shields.io/docker/v/kubernetesloong64/git-loong64/v2.54.0-anolis?sort=semver&arch=loong64&logo=docker&label=kubernetesloong64%2Fgit-loong64)](https://hub.docker.com/r/kubernetesloong64/git-loong64/tags)
+- [![kubernetesloong64/git-loong64](https://img.shields.io/docker/v/kubernetesloong64/git-loong64/v2.54.0-debian?sort=semver&arch=loong64&logo=docker&label=kubernetesloong64%2Fgit-loong64)](https://hub.docker.com/r/kubernetesloong64/git-loong64/tags)
+- [![kubernetesloong64/git-loong64](https://img.shields.io/docker/v/kubernetesloong64/git-loong64/v2.54.0-debian-slim?sort=semver&arch=loong64&logo=docker&label=kubernetesloong64%2Fgit-loong64)](https://hub.docker.com/r/kubernetesloong64/git-loong64/tags)
+- [![kubernetesloong64/git-loong64](https://img.shields.io/docker/v/kubernetesloong64/git-loong64/v2.54.0-openeuler?sort=semver&arch=loong64&logo=docker&label=kubernetesloong64%2Fgit-loong64)](https://hub.docker.com/r/kubernetesloong64/git-loong64/tags)
 
 | Registry               | Image                                                                  |
 |------------------------|------------------------------------------------------------------------|
@@ -59,19 +62,19 @@ Each file has a corresponding `.asc` detached GPG signature.
 Docker Hub:
 
 ```
-kubernetesloong64/git-loong64:v2.54.0-loong64-anolis
-kubernetesloong64/git-loong64:v2.54.0-loong64-debian
-kubernetesloong64/git-loong64:v2.54.0-loong64-debian-slim
-kubernetesloong64/git-loong64:v2.54.0-loong64-openeuler
+kubernetesloong64/git-loong64:v2.54.0-anolis
+kubernetesloong64/git-loong64:v2.54.0-debian
+kubernetesloong64/git-loong64:v2.54.0-debian-slim
+kubernetesloong64/git-loong64:v2.54.0-openeuler
 ```
 
 Aliyun (China mirror):
 
 ```
-registry.cn-qingdao.aliyuncs.com/kubernetesloong64/git-loong64:v2.54.0-loong64-anolis
-registry.cn-qingdao.aliyuncs.com/kubernetesloong64/git-loong64:v2.54.0-loong64-debian
-registry.cn-qingdao.aliyuncs.com/kubernetesloong64/git-loong64:v2.54.0-loong64-debian-slim
-registry.cn-qingdao.aliyuncs.com/kubernetesloong64/git-loong64:v2.54.0-loong64-openeuler
+registry.cn-qingdao.aliyuncs.com/kubernetesloong64/git-loong64:v2.54.0-anolis
+registry.cn-qingdao.aliyuncs.com/kubernetesloong64/git-loong64:v2.54.0-debian
+registry.cn-qingdao.aliyuncs.com/kubernetesloong64/git-loong64:v2.54.0-debian-slim
+registry.cn-qingdao.aliyuncs.com/kubernetesloong64/git-loong64:v2.54.0-openeuler
 ```
 
 ## Verifying releases
