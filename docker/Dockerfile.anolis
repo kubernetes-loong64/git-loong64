@@ -14,7 +14,8 @@ RUN curl -LO https://github.com/git/git/archive/refs/tags/${GIT_BRANCH}.zip \
   && make -j$(nproc) prefix=/usr/local \
   && make -j$(nproc) install DESTDIR=/tmp/git-staging prefix=/usr/local \
   && find /tmp/git-staging \
-  && /tmp/git-staging/usr/local/bin/git --version
+  && /tmp/git-staging/usr/local/bin/git --version \
+  && /tmp/git-staging/usr/local/bin/git clone https://github.com/kubernetes-loong64/git-loong64.git
 
 FROM $BASE_IMAGE
 
