@@ -32,9 +32,6 @@ jobs:
           - os: debian-slim
             dockerfile: Dockerfile.debian
             base_image: lcr.loongnix.cn/debian:14-slim
-          - os: openeuler
-            dockerfile: Dockerfile.openeuler
-            base_image: openeuler/openeuler:24.03-lts-sp3
     permissions:
       contents: read
     steps:
@@ -150,7 +147,7 @@ jobs:
           echo "=== After load ==="
           docker images
 
-          for os in anolis debian debian-slim openeuler; do
+          for os in anolis debian debian-slim; do
             IMAGE_REF=${{ env.NAMESPACE }}/git-loong64:${{ env.DOCKER_TAG }}-$os
             GIT_BRANCH_IMAGE_REF=${{ env.NAMESPACE }}/git-loong64:${{ env.GIT_BRANCH }}-$os
             echo "=== Pushing $IMAGE_REF ==="
@@ -192,7 +189,6 @@ jobs:
           | `git-loong64-${{ env.DOCKER_TAG }}-anolis.tar`      | [git-loong64-${{ env.DOCKER_TAG }}-anolis.tar](${{ env.BASE_URL }}/git-loong64-${{ env.DOCKER_TAG }}-anolis.tar)           |
           | `git-loong64-${{ env.DOCKER_TAG }}-debian.tar`      | [git-loong64-${{ env.DOCKER_TAG }}-debian.tar](${{ env.BASE_URL }}/git-loong64-${{ env.DOCKER_TAG }}-debian.tar)           |
           | `git-loong64-${{ env.DOCKER_TAG }}-debian-slim.tar` | [git-loong64-${{ env.DOCKER_TAG }}-debian-slim.tar](${{ env.BASE_URL }}/git-loong64-${{ env.DOCKER_TAG }}-debian-slim.tar) |
-          | `git-loong64-${{ env.DOCKER_TAG }}-openeuler.tar`   | [git-loong64-${{ env.DOCKER_TAG }}-openeuler.tar](${{ env.BASE_URL }}/git-loong64-${{ env.DOCKER_TAG }}-openeuler.tar)     |
 
           Each file has a corresponding `.asc` detached GPG signature.
 
@@ -202,7 +198,6 @@ jobs:
           ${{ env.NAMESPACE }}/git-loong64:${{ env.DOCKER_TAG }}-anolis
           ${{ env.NAMESPACE }}/git-loong64:${{ env.DOCKER_TAG }}-debian
           ${{ env.NAMESPACE }}/git-loong64:${{ env.DOCKER_TAG }}-debian-slim
-          ${{ env.NAMESPACE }}/git-loong64:${{ env.DOCKER_TAG }}-openeuler
           ```
 
           Download and load the image:
@@ -216,9 +211,6 @@ jobs:
 
           curl -LO ${{ env.BASE_URL }}/git-loong64-${{ env.DOCKER_TAG }}-debian-slim.tar
           docker load -i git-loong64-${{ env.DOCKER_TAG }}-debian-slim.tar
-
-          curl -LO ${{ env.BASE_URL }}/git-loong64-${{ env.DOCKER_TAG }}-openeuler.tar
-          docker load -i git-loong64-${{ env.DOCKER_TAG }}-openeuler.tar
           ```
 
           ## Verifying releases
@@ -272,7 +264,7 @@ jobs:
           password: ${{ secrets.SYNC_REGISTRY_PASSWORD }}
       - name: Sync Docker images to sync container registry
         run: |
-          for os in anolis debian debian-slim openeuler; do
+          for os in anolis debian debian-slim; do
             IMAGE_REF=${{ env.NAMESPACE }}/git-loong64:${{ env.DOCKER_TAG }}-$os
             SYNC_IMAGE_REF=${{ vars.SYNC_REGISTRY }}/${{ env.NAMESPACE }}/git-loong64:${{ env.DOCKER_TAG }}-$os
             SYNC_GIT_BRANCH_IMAGE_REF=${{ vars.SYNC_REGISTRY }}/${{ env.NAMESPACE }}/git-loong64:${{ env.GIT_BRANCH }}-$os
