@@ -5,7 +5,7 @@
 <p align="center"><img src="https://img.shields.io/badge/Git%20LoongArch64%20%E9%BE%99%E8%8A%AF%E6%9E%B6%E6%9E%84%E5%8F%91%E8%A1%8C%E7%89%88-blue?logo=git&logoColor=white" alt="Git LoongArch64 龙芯架构发行版"></p>
 
 Build [Git](https://github.com/git/git) Docker images for the **LoongArch64 (loong64)** architecture via CI/CD.
-Images are provided on multiple base distributions (Anolis OS, Debian, Debian Slim, OpenEuler).
+Images are provided on multiple base distributions (Anolis OS, Debian, Debian Slim).
 
 ## How it works
 
@@ -38,12 +38,11 @@ The suffix in the build metadata indicates the release stage:
 
 Each release includes Docker image tarballs for the following distributions:
 
-| File                                      | Base distribution |
-|-------------------------------------------|-------------------|
-| `git-loong64-<version>-anolis.tar`        | Anolis OS         |
-| `git-loong64-<version>-debian.tar`        | Debian            |
-| `git-loong64-<version>-debian-slim.tar`   | Debian (slim)     |
-| `git-loong64-<version>-openeuler.tar`     | OpenEuler         |
+| File                                    | Base distribution |
+|-----------------------------------------|-------------------|
+| `git-loong64-<version>-anolis.tar`      | Anolis OS         |
+| `git-loong64-<version>-debian.tar`      | Debian            |
+| `git-loong64-<version>-debian-slim.tar` | Debian (slim)     |
 
 Each file has a corresponding `.asc` detached GPG signature.
 
@@ -52,7 +51,6 @@ Each file has a corresponding `.asc` detached GPG signature.
 - [![kubernetesloong64/git-loong64](https://img.shields.io/docker/v/kubernetesloong64/git-loong64/v2.54.0-anolis?sort=semver&arch=loong64&logo=docker&label=kubernetesloong64%2Fgit-loong64)](https://hub.docker.com/r/kubernetesloong64/git-loong64/tags)
 - [![kubernetesloong64/git-loong64](https://img.shields.io/docker/v/kubernetesloong64/git-loong64/v2.54.0-debian?sort=semver&arch=loong64&logo=docker&label=kubernetesloong64%2Fgit-loong64)](https://hub.docker.com/r/kubernetesloong64/git-loong64/tags)
 - [![kubernetesloong64/git-loong64](https://img.shields.io/docker/v/kubernetesloong64/git-loong64/v2.54.0-debian-slim?sort=semver&arch=loong64&logo=docker&label=kubernetesloong64%2Fgit-loong64)](https://hub.docker.com/r/kubernetesloong64/git-loong64/tags)
-- [![kubernetesloong64/git-loong64](https://img.shields.io/docker/v/kubernetesloong64/git-loong64/v2.54.0-openeuler?sort=semver&arch=loong64&logo=docker&label=kubernetesloong64%2Fgit-loong64)](https://hub.docker.com/r/kubernetesloong64/git-loong64/tags)
 
 | Registry               | Image                                                                  |
 |------------------------|------------------------------------------------------------------------|
@@ -65,7 +63,6 @@ Docker Hub:
 kubernetesloong64/git-loong64:v2.54.0-anolis
 kubernetesloong64/git-loong64:v2.54.0-debian
 kubernetesloong64/git-loong64:v2.54.0-debian-slim
-kubernetesloong64/git-loong64:v2.54.0-openeuler
 ```
 
 Aliyun (China mirror):
@@ -74,7 +71,6 @@ Aliyun (China mirror):
 registry.cn-qingdao.aliyuncs.com/kubernetesloong64/git-loong64:v2.54.0-anolis
 registry.cn-qingdao.aliyuncs.com/kubernetesloong64/git-loong64:v2.54.0-debian
 registry.cn-qingdao.aliyuncs.com/kubernetesloong64/git-loong64:v2.54.0-debian-slim
-registry.cn-qingdao.aliyuncs.com/kubernetesloong64/git-loong64:v2.54.0-openeuler
 ```
 
 ## Verifying releases

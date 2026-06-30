@@ -5,7 +5,7 @@
 <p align="center"><img src="https://img.shields.io/badge/Git%20LoongArch64%20%E9%BE%99%E8%8A%AF%E6%9E%B6%E6%9E%84%E5%8F%91%E8%A1%8C%E7%89%88-blue?logo=git&logoColor=white" alt="Git LoongArch64 龙芯架构发行版"></p>
 
 通过 CI/CD 为 **LoongArch64 (loong64)** 架构构建 [Git](https://github.com/git/git) Docker 镜像。
-基于多种 Linux 发行版（Anolis OS、Debian、Debian Slim、OpenEuler）提供镜像。
+基于多种 Linux 发行版（Anolis OS、Debian、Debian Slim）提供镜像。
 
 ## 工作原理
 
@@ -43,7 +43,6 @@ Docker 镜像。目标平台：`linux/loong64`。
 | `git-loong64-<version>-anolis.tar`      | Anolis OS     |
 | `git-loong64-<version>-debian.tar`      | Debian        |
 | `git-loong64-<version>-debian-slim.tar` | Debian (slim) |
-| `git-loong64-<version>-openeuler.tar`   | OpenEuler     |
 
 每个文件都有对应的 `.asc` 分离 GPG 签名。
 
@@ -52,7 +51,6 @@ Docker 镜像。目标平台：`linux/loong64`。
 - [![kubernetesloong64/git-loong64](https://img.shields.io/docker/v/kubernetesloong64/git-loong64/v2.54.0-anolis?sort=semver&arch=loong64&logo=docker&label=kubernetesloong64%2Fgit-loong64)](https://hub.docker.com/r/kubernetesloong64/git-loong64/tags)
 - [![kubernetesloong64/git-loong64](https://img.shields.io/docker/v/kubernetesloong64/git-loong64/v2.54.0-debian?sort=semver&arch=loong64&logo=docker&label=kubernetesloong64%2Fgit-loong64)](https://hub.docker.com/r/kubernetesloong64/git-loong64/tags)
 - [![kubernetesloong64/git-loong64](https://img.shields.io/docker/v/kubernetesloong64/git-loong64/v2.54.0-debian-slim?sort=semver&arch=loong64&logo=docker&label=kubernetesloong64%2Fgit-loong64)](https://hub.docker.com/r/kubernetesloong64/git-loong64/tags)
-- [![kubernetesloong64/git-loong64](https://img.shields.io/docker/v/kubernetesloong64/git-loong64/v2.54.0-openeuler?sort=semver&arch=loong64&logo=docker&label=kubernetesloong64%2Fgit-loong64)](https://hub.docker.com/r/kubernetesloong64/git-loong64/tags)
 
 | 镜像仓库       | 镜像                                                                     |
 |------------|------------------------------------------------------------------------|
@@ -65,7 +63,6 @@ Docker Hub：
 kubernetesloong64/git-loong64:v2.54.0-anolis
 kubernetesloong64/git-loong64:v2.54.0-debian
 kubernetesloong64/git-loong64:v2.54.0-debian-slim
-kubernetesloong64/git-loong64:v2.54.0-openeuler
 ```
 
 阿里云（中国镜像）：
@@ -74,7 +71,6 @@ kubernetesloong64/git-loong64:v2.54.0-openeuler
 registry.cn-qingdao.aliyuncs.com/kubernetesloong64/git-loong64:v2.54.0-anolis
 registry.cn-qingdao.aliyuncs.com/kubernetesloong64/git-loong64:v2.54.0-debian
 registry.cn-qingdao.aliyuncs.com/kubernetesloong64/git-loong64:v2.54.0-debian-slim
-registry.cn-qingdao.aliyuncs.com/kubernetesloong64/git-loong64:v2.54.0-openeuler
 ```
 
 ## 验证发布
