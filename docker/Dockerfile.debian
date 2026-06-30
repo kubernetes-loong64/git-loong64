@@ -34,4 +34,6 @@ LABEL maintainer="徐晓伟 <xuxiaowei@xuxiaowei.com.cn>" \
       org.opencontainers.image.url="https://github.com/kubernetes-loong64/git-loong64" \
       org.opencontainers.image.source="https://github.com/kubernetes-loong64/git-loong64"
 
-RUN git --version
+RUN git --version \
+    && git clone https://github.com/kubernetes-loong64/git-loong64.git /tmp/git-loong64 \
+    && rm -rf /tmp/git-loong64
