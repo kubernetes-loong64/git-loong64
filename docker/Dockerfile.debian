@@ -37,4 +37,5 @@ RUN apt-get update \
     && apt-get install -y --no-install-recommends libcurl4-gnutls ca-certificates \
     && git --version \
     && git clone https://github.com/kubernetes-loong64/git-loong64.git /tmp/git-loong64 \
+    && rm -rf /var/lib/apt/lists/* \
     && rm -rf /tmp/git-loong64
